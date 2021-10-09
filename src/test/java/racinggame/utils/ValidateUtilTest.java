@@ -9,18 +9,19 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 public class ValidateUtilTest {
 
-  @DisplayName("입력값 공백검증 테스트(공백이면 true)")
+  @DisplayName("입력값 공백검증 테스트(공백이면 True)")
   @NullAndEmptySource
   @ValueSource(strings = {" ", "\n"})
   @ParameterizedTest
-  void 입력값_공백검증_공백_테스트(String input) {
+  void isBlankTrueTest(String input) {
     assertThat(ValidateUtil.isBlank(input)).isTrue();
   }
 
-  @DisplayName("입력값 공백검증 테스트(값이 있는경우 true)")
-  @ValueSource(strings = "테스트")
+  @DisplayName("입력값 공백검증 테스트(값이 존재하는 False)")
+  @ValueSource(strings = {"테스트", "cupssky"})
   @ParameterizedTest
-  void 입력값_공백검증_입력값존재_테스트(String input) {
+  void isBlankFalseTest(String input) {
     assertThat(ValidateUtil.isBlank(input)).isFalse();
   }
+
 }
