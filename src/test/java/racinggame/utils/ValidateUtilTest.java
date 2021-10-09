@@ -24,4 +24,18 @@ public class ValidateUtilTest {
     assertThat(ValidateUtil.isBlank(input)).isFalse();
   }
 
+  @DisplayName("입력값 콤마 SPLIT여부 테스트(SPLIT 가능한 경우 true)")
+  @ValueSource(strings = {"테스트,테스트", "테스트,abcd", "1234,테스트"})
+  @ParameterizedTest
+  void isSplitTrueTest(String input) {
+    assertThat(ValidateUtil.isSplit(input)).isTrue();
+  }
+
+  @DisplayName("입력값 콤마 SPLIT여부 테스트(SPLIT 불가능한 경우 false)")
+  @ValueSource(strings = {"테스트", " ", "\n"})
+  @NullAndEmptySource
+  @ParameterizedTest
+  void isSplitTrueFalse(String input) {
+    assertThat(ValidateUtil.isSplit(input)).isFalse();
+  }
 }
