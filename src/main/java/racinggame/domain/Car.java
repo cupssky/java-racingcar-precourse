@@ -17,6 +17,17 @@ public class Car {
         }
     }
 
+    public Car getDistanceOverCar(int distance) {
+        return isDistanceOverCar(distance) ? this : null;
+    }
+
+    public boolean isDistanceOverCar(int distance) {
+        if (this.distance > distance) {
+            return true;
+        }
+        return false;
+    }
+
     public String getName() {
         return name;
     }
