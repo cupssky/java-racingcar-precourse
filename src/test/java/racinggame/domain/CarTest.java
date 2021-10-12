@@ -30,26 +30,26 @@ public class CarTest {
         assertThat(car.getDistance()).isEqualTo(1);
     }
 
-    @DisplayName("목표거리 지나가지 않은 자동차 정보 못가져오는지 기능 테스트 (결과 null)")
+    @DisplayName("최대 거리 도달한 자동차 정보 가져오는지 기능 테스트 (결과 null)")
     @ValueSource(ints = 4)
     @ParameterizedTest
-    void getDistanceOverCarsIsNullTest(int distance) {
-        assertThat(car.getDistanceOverCar(distance)).isNull();
+    void getMaxDistanceCarIsNullTest(int distance) {
+        assertThat(car.getMaxDistanceCar(distance)).isNull();
     }
 
-    @DisplayName("목표거리 지나간 자동차인지 검증 기능 테스트 (움직인 차가 아니라서 결과 false)")
+    @DisplayName("최대 거리 도달한 자동차 정보 가져오는지 기능 테스트 (결과 not null)")
     @ValueSource(ints = 4)
     @ParameterizedTest
-    void isDistanceOverCarsTest(int distance) {
-        assertThat(car.isDistanceOverCar(distance)).isFalse();
-    }
-
-    @DisplayName("목표거리 지나간 자동차 정보 가져오는지 기능 테스트")
-    @ValueSource(ints = 4)
-    @ParameterizedTest
-    void getDistanceOverCarsTest(int distance) {
+    void getMaxDistanceCarTest(int distance) {
         getTestMoveCar(6);
-        assertThat(car.getDistanceOverCar(distance)).isNotNull();
+        assertThat(car.getMaxDistanceCar(distance)).isNotNull();
+    }
+
+    @DisplayName("최대 거리 도달한 자동차인지 검증 기능 테스트 (움직인 차가 아니라서 결과 false)")
+    @ValueSource(ints = 4)
+    @ParameterizedTest
+    void isMaxDistanceCarTest(int distance) {
+        assertThat(car.isMaxDistanceCar(distance)).isFalse();
     }
 
     void getTestMoveCar(int moveCount) {
