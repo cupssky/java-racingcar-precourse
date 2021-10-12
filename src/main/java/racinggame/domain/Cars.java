@@ -5,8 +5,7 @@ import nextstep.utils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
 
-import static racinggame.view.GameView.printNewLine;
-import static racinggame.view.GameView.printResult;
+import static racinggame.view.GameView.*;
 
 public class Cars {
 
@@ -22,9 +21,9 @@ public class Cars {
         }
     }
 
-    public void result() {
+    public void moveProccess() {
         for (Car car : cars) {
-            printResult(car);
+            printMoveProcess(car);
         }
         printNewLine();
     }
