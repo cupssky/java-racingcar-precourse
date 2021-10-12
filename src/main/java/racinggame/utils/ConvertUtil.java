@@ -1,6 +1,7 @@
 package racinggame.utils;
 
 import racinggame.domain.Car;
+import racinggame.domain.CarName;
 import racinggame.domain.Cars;
 
 import java.util.ArrayList;
@@ -17,10 +18,9 @@ public class ConvertUtil {
         if (!isSplit(value)) {
             return null;
         }
-        List<String> carNames = Arrays.asList(value.split(COMMA));
         List<Car> list = new ArrayList<>();
-        for (String carName : carNames) {
-            list.add(new Car(carName));
+        for (String carName : Arrays.asList(value.split(COMMA))) {
+            list.add(new Car(new CarName(carName)));
         }
         return new Cars(list);
     }
