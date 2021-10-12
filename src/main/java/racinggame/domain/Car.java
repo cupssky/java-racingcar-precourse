@@ -3,12 +3,12 @@ package racinggame.domain;
 public class Car {
 
     private static final int MOVE_CONDITION_NUMBER = 4;
-    private String name;
+    private CarName name;
     private int distance;
 
     private Car() {}
 
-    public Car(String name) {
+    public Car(CarName name) {
         this.name = name;
         this.distance = 0;
     }
@@ -34,7 +34,7 @@ public class Car {
     }
 
     public String getName() {
-        return name;
+        return name.getCarName();
     }
 
     public int getDistance() {

@@ -16,7 +16,7 @@ public class CarTest {
 
     @BeforeEach
     void setUp() {
-        car = new Car(CAR_TEMP_NAME);
+        car = new Car(new CarName(CAR_TEMP_NAME));
     }
 
     @DisplayName("자동차 MOVE 기능 테스트(4이상일 경우 움직인 거리 증가)")
