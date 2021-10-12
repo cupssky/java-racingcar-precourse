@@ -6,6 +6,8 @@ public class Car {
     private String name;
     private int distance;
 
+    private Car() {}
+
     public Car(String name) {
         this.name = name;
         this.distance = 0;
@@ -17,12 +19,15 @@ public class Car {
         }
     }
 
-    public Car getDistanceOverCar(int distance) {
-        return isDistanceOverCar(distance) ? this : null;
+    public Car getMaxDistanceCar(int max) {
+        if (isMaxDistanceCar(max)) {
+            return this;
+        }
+        return null;
     }
 
-    public boolean isDistanceOverCar(int distance) {
-        if (this.distance > distance) {
+    public boolean isMaxDistanceCar(int max) {
+        if (distance >= max) {
             return true;
         }
         return false;
